@@ -1,0 +1,43 @@
+@mixin grid($cols,$margin){
+    float: left;
+    background: #ce3d3d;
+    margin-right: $margin;
+    margin-bottom: $margin;
+    height: 150px;
+    width:((100% - (($cols - 1) * $margin)) / $cols);
+
+    &:nth-child(#{$cols}n) { //#{$cols} получать последний элемент (N)
+        margin-right: 0;//в ряду cols и устанавливаем у него $magrin-right: 0
+    }
+}
+
+@mixin link($link,$hover,$active,$visited) {
+    color: $link;
+
+    &:hover{
+        color: $hover;
+    }
+    &:active{
+        color: $active;
+    }
+    &:visited{
+        color: $visited;
+    }
+}
+
+a {
+    @include link(black, red, blue, green)
+}
+
+
+
+@mixin font ($color:grey, $fontW:light) {
+    font-sizq: $mainfintSize;
+    font-weight: $fontW;
+    font-family: Aria, sans-serif;
+    color: $color;    
+}
+
+@mixin padd($color, $padd...) {
+    padding: $padd;
+}
